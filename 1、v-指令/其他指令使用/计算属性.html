@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  <div id="app">
+    // getString 被执行四次
+    <p>{{getString()}}</p>
+    <p>{{getString()}}</p>
+    <p>{{getString()}}</p>
+    <p>{{getString()}}</p>
+
+
+    // string 只被执行一次
+    <p>{{string}}</p>
+    <p>{{string}}</p>
+    <p>{{string}}</p>
+    <p>{{string}}</p>
+  </div>
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg1: '我是',
+      msg2: '小丑',
+     },  
+    methods: {
+      getString:function(){
+        console.log('methods被执行了');
+        return this.msg1 + ' ' + this.msg2;
+      }
+    },
+    computed:{
+      string:function(){
+        console.log('computed被执行了');
+        return this.msg1 + ' ' + this.msg2
+      }
+    }
+   });
+  </script>
+</html>

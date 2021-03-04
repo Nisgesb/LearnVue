@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  <!-- 
+
+    组件化是Vue.js中的重要思想
+        ---   他提供了一种抽象，让我们可以开发出一个个独立、可复用的小组件来构造我们的应用
+        ---   任何的应用都会被抽象成一个个组件树
+
+
+    使用步骤：
+        ---   创建组件构造器
+        ---   注册组件
+        ---   使用组件
+
+   -->
+  <div id ="app">
+    <!-- 使用 -->
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+  </div>
+
+</body>
+
+<script>
+  // 创建组件构造器
+  // ES6的语法 可以用Tab上面的点来定义字符串  好处  -- 可换行
+  const cpnC = Vue.extend({
+    template:
+    `<div>
+      <h2>我是标题</h2>
+      <p>我是内容1</p>
+      <p>我是内容2</p>
+    </div>`
+  })
+
+  // 注册全局组件
+  //  全局组件  --  每一个挂载vue实例的标签都可以使用
+  // Vue.component("my-cpn", cpnC)
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    //  局部组件注册
+    components: {
+      "my-cpn": cpnC
+    },
+    methods: {},
+    
+   });
+  </script>
+</html>

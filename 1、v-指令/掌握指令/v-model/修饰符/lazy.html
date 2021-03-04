@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+
+  <!-- 
+
+    lazy修饰符：
+      --  默认情况下， v-model默认是在input事件中同步输入框的数据的。
+          也就是说，一旦有数据发生改变， 对应的data中的数据就会自动发生改变
+
+      --  lazy修饰符可以让数据在失去焦点或者回车时才会更新： v-model.lazy
+
+   -->
+  
+  <div id ="app">
+    <label for="aa">
+      <input type="text" id="aa" v-model.lazy="msg">修饰符
+    </label>
+    <h2>您输入的内容是：{{msg}}</h2>
+  </div>
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    methods: {}
+   });
+  </script>
+</html>

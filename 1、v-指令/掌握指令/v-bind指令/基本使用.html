@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  
+  <div id ="app">
+
+    <!-- 当成字符串 -->
+    <img src="{{srcImg}}">
+    <img src="srcImg">
+
+    <!-- v-bind 可以绑定属性 -->
+    <img v-bind:src="srcImg">
+    <!-- 语法糖 -->
+    <a :href="srcImg">图片</a>
+
+
+  </div>
+
+
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data : { 
+      msg : 'vue',
+      srcImg:'https://hbimg.huabanimg.com/90cffbbc425e3c0b6925b20fe688fb7f75f1cb39327e6a-9xWWum_fw658/format/jpg',
+     },  
+    methods: {}
+   });
+  </script>
+</html>

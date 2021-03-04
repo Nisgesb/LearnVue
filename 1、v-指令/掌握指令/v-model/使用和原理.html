@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+
+  <!-- 
+    
+    双向绑定
+    可以给表单赋初始值，还可以获取更改后的值 传给服务器
+
+  -->
+  
+  <!-- 用 v-bind 和 v-on 实现-->
+
+  <!-- <div id ="app">
+    <input type="text" :value="msg" @input="msg = $event.target.value">
+    <h2>{{msg}}</h2>
+  </div> -->
+
+
+
+
+  <!-- 用 v-model 来实现 -->
+
+  <!-- <div id ="app">
+    <input type="text" v-model="msg" >
+    <h2>{{msg}}</h2>
+  </div> -->
+  
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '你好呀',
+     },  
+    methods: {}
+   });
+  </script>
+</html>

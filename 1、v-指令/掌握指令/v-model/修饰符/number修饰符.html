@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+
+  <!-- 
+
+    number修饰符：
+        ---   默认情况下，在输入框中无论我们输入的是字母还是数字，都会被当作字符串类型处理
+              但是如果我们希望处理的是数字类型，那么最好直接将内容当作数字处理。
+              比如之前java web中要获取sid
+        
+        ---   number可以让输入框中的内容自动转换成数字类型
+
+   -->
+  
+  <div id ="app">
+    <input type="number" v-model="age">
+    <h2>获取的类型是  ---  {{typeof age}}</h2>
+  </div>
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      age: 0
+     },  
+    methods: {}
+   });
+  </script>
+</html>

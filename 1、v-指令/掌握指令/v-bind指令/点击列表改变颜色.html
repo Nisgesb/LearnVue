@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+  <style>
+    .active{
+      color: cadetblue;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div id ="app">
+    <ul>
+      <li v-for="(item, index) in movie" @click="getChange(index)" :class="{active: index==isactive}">{{item}}</li>
+    </ul>
+  </div>
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data : { 
+      msg : '',
+      movie : ['海王', '巨人', '火影', '海尔兄弟'],
+      isactive : 0
+     },  
+    methods: {
+      getChange:function(index){
+        this.isactive = index;
+      }
+    }
+   });
+  </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  <div id ="app">
+    <label v-for="item in bb" :for="item">
+      <input type="checkbox" :value="item" :id="item" v-model="aa">{{item}}
+    </label>
+    
+    <h2>您的选择是：{{aa}}</h2>
+  </div>
+  
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      //  双向绑定  收集获取的数据
+      aa: [],
+      //  服务器获取的选择
+      bb: ["a", "b", "c", "d", "e"]
+     },  
+    methods: {}
+   });
+  </script>
+</html>

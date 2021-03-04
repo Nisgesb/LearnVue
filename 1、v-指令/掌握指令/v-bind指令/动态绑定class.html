@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+  <style>
+    .active{
+      color: brown;
+    }
+    .line{
+      color: cadetblue;
+    }
+  </style>
+<body>
+  
+  <!-- 对象语法  -- 可以用对象{key1 : value1, key2 : value2} 来对class属性赋值 -->
+  <!-- value为Boolean值可以通过vue操控改变class的值 -->
+  <div id ="app">
+    <h2 :class="{active : isactive, line : isline}">动态绑定class 对象语法测试</h2>
+    <button @click="changeClass">点击改变</button>
+  </div>
+
+
+
+  <!-- 如果过于复杂，可以放在一个methods或者computed中 -->
+  <div id ="app2">
+    <h2 :class="getClasses()">动态绑定class methods测试</h2>
+    <button @click="changeClass">点击改变</button>
+  </div>
+
+</body>
+
+<script>
+  
+   var app = new Vue({
+    el: '#app',
+    data : { 
+      msg : '',
+      isactive : false,
+      isline : true,
+     },  
+    methods: {
+      changeClass:function(){
+        this.isactive = !this.isactive;
+        this.isline = !this.isline;
+      }
+    }
+   });
+
+   var app2 = new Vue({
+    el: '#app2',
+    data : { 
+      msg : '',
+      isactive : false,
+      isline : true,
+     },  
+    methods: {
+      changeClass:function(){
+        this.isactive = !this.isactive;
+        this.isline = !this.isline;
+      },
+      getClasses: function(){
+        return {active: this.isactive, line: this.isline}
+      }
+    }
+   });
+  </script>
+</html>

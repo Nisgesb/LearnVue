@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+
+  <!-- .stop修饰符是用来阻止冒泡事件的发生的。 -->
+  
+  <!-- 当点击大盒子的时候包裹的按钮也会被点击 不想要这种效果时 可以加上.stop修饰符 -->
+  
+  <div id ="app">
+    <div @click = divclick()>我是大盒子
+      <button @click.stop = btnclick>包裹的按钮</button>
+    </div>
+  </div>
+
+  <!-- 修饰符.stop应该放在需要阻止冒泡的位置上。 -->
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    methods: {
+      divclick(){
+        console.log("div被点击了!");
+      },
+      btnclick(){
+        console.log("btn被点击了!");
+      }
+    }
+    
+   });
+  </script>
+</html>

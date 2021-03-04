@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  <!-- 
+
+    key的使用
+    Vue在渲染之前会创建一个虚拟dom --- vdom
+
+    当发现要渲染的 之前显示的和之后要显示的元素不会冲突时（不会同时出现）
+    Vue就会复用之前的元素
+    在复用之前会对两者的区别 修改区别 
+    
+    如果不想复用的话可以加个 ---key属性将两者区分开来
+  
+  -->
+
+  <!-- 以为复用了之前的input框 所以输入的东西被复用了 -->
+  <div id="app">
+    <div v-if="isShow">
+      <label for="username">用户名</label>
+      <input type="text" id="username" key="username">
+      <button @click="btnclick()">切换</button>
+    </div>
+    <div v-else>
+      <label for="email">邮箱</label>
+      <input type="text" id="email" key="email">
+      <button @click="btnclick()">切换</button>
+    </div>
+   
+  </div> 
+
+
+  <!-- <br/><br/><br/><br/>
+
+
+
+
+
+
+
+  <div id ="app">
+    <select name="fxk" id="" v-if="msg=='2'">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <select name="fxk" id="" v-else>
+      <option value="1">a</option>
+      <option value="2">b</option>
+      <option value="3">c</option>
+      <option value="4">d</option>
+    </select>
+  </div> -->
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      isShow: true,
+     },  
+    methods: {
+      btnclick(){
+        this.isShow = !this.isShow;
+      }
+    }
+   });
+  </script>
+</html>

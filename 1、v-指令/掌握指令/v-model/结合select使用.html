@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  <div id ="app">
+    <!-- 单选 -->
+    <select name="aaa" id="" v-model="msg">
+      <option value=""></option>
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+      <option value="d">d</option>
+    </select>
+
+    <h2>您选择的是：{{msg}}</h2>
+
+    <br/><br/><br/><br/>
+      <!-- 多选 -->
+    <select name="aaa" id="" v-model="mmsg" multiple style="width: 100px; height: 100px;">
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+      <option value="d">d</option>
+    </select>
+
+    <h2>您选择的是：{{mmsg}}</h2>
+  </div>
+
+
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+      mmsg: ['a']
+     },  
+    methods: {}
+   });
+  </script>
+</html>

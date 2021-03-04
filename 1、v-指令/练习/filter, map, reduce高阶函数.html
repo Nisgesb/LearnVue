@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+
+    编程范式：面向对象编程（第一公民：对象）/ 函数式编程（第一公民：函数）
+
+    1、要求：获取数组中小于一百的数
+
+    2、要求：将要求1的数全部乘以二
+
+    3、要求：将要求2的数全部相加
+
+   -->
+  
+  <script>
+    const nums = [10, 20, 111, 222, 444, 40, 50]
+    //  filter 回调函数必须返回一个布尔值， 1的时候将n加入新的数组 2的时候过滤掉
+
+    // map  处理传进来的n 返回
+
+    // reduce  两个参数 第一个参数是函数， 第二个参数是函数中的第一个参数的初始值
+    //         第一个参数的函数中有两个参数 一个参数是 每次return回来的 第二个是传经来的n
+    //         再将最后得出来的答案返回
+
+
+
+    // let totalNum = nums.filter(function(n){
+    //   return n < 100;
+    // }).map(function(n){
+    //   return n * 2;
+    // }).reduce(function(pre, n){
+    //   return pre + n;
+    // },)
+
+    // console.log(totalNum);
+
+    
+    // 链式 箭头函数 
+
+    let totalNum = nums.filter(n => n < 100).map(n => n * 2).reduce((pre, n) => pre + n)
+    console.log(totalNum);
+
+  </script>
+
+</body>
+
+
+</html>

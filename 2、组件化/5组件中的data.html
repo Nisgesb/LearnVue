@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<template id="counter">
+  <div>
+    <button @click="decrease()">-</button>
+    <span>当前计数:{{num}}</span>
+    <button @click="increase()">+</button>
+  </div>
+</template>
+
+<body>
+
+  <div id="app">
+    
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+    <br>
+    <counter2></counter2>
+  </div>
+
+</body>
+
+<script>
+  Vue.component(
+    "counter2", {
+      template: "#counter",
+      data() {
+        return {
+          num: 50,
+        }
+      },
+      methods: {
+        increase() {
+            this.num++
+          },
+          decrease() {
+            this.num--
+          }
+      }
+    
+    },
+    )
+
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      num: 100,
+    },
+    methods: {
+
+    },
+    components: {
+
+      counter: {
+        template: "#counter",
+        data() {
+          return {
+            num: 0
+          }
+        },
+        methods: {
+          increase() {
+            this.num++
+          },
+          decrease() {
+            this.num--
+          }
+        },
+      }
+    },
+
+
+  });
+</script>
+</html>
+<!-- 
+      
+      组件内的data互不影响：
+          ---   组件内的data要放在注册的对象内
+          ---   data必须是函数， 函数内返回值就是定义的变量
+
+                      ---  为什么必须是函数：
+                            ---   因为如果是vue实例一样 创建一个data对象的话 复用组件时
+                                  组件用的都是同一个对象， 操作时改变的也是同一个对象， 会影响操作
+                                  * 如果是函数的话，每次调用函数时， 都会返回一个不同的对象，
+                                    对象之间互不干扰。
+
+                                  * 如果组件需要控制同一个对象的： data的返回值可以是一个外部定义的对象：
+                                    创建一个对象
+                                    const obj = {
+                                        name: '超人',
+                                        age: 20
+                                      }
+                                      通过过这个函数分发
+                                      function giveData() {
+                                        return obj
+                                      }
+                                  
+
+     -->

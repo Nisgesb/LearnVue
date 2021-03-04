@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<!-- 父访问子属性：
+
+        --- children： 访问所有的子组件（少用）
+
+        --- refs:  在组件标签上加上ref属性 给定名称
+      
+-->
+
+<template id="cpn">
+  <div>
+    <p>我是组件一</p>
+  </div>
+</template>
+
+<body>
+  
+  <div id ="app">
+    <cpn></cpn>
+    <cpn ref="reference"></cpn>
+    <cpn></cpn>
+    <button @click="btnclick()">按钮</button>
+  </div>
+
+</body>
+
+<script>
+  
+  const cpn =  {
+    template: "#cpn",
+    data() {
+      return {
+        name: "我是子组件的name"
+      }
+    },
+    methods: {
+      aa() {
+        console.log("我是子组件的方法");
+      }
+    },
+  }
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    methods: {
+      btnclick() {
+        // children  --------
+        // console.log(this.$children);
+        // console.log(this.$children[0].name);
+        // this.$children[0].aa();
+
+        // refs -----------
+        // console.log(this.$refs);
+        // console.log(this.$refs.reference.name);
+        // this.$refs.reference.aa();
+      }
+    },
+    components: {
+      cpn
+    }
+   });
+  </script>
+</html>

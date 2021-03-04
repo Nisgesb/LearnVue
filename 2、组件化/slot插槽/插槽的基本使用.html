@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<template id="cpn">
+  <div>
+    <h2>我是一个组件</h2>
+    <slot><i>我是默认的插槽</i></slot>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</template>
+
+<body>
+  <!-- 
+    组件插槽：
+      -- 组件插槽是为了让我们封装的组件更加具有扩展性
+      -- 让使用者可以决定组件内部的一些内容到底展示什么
+
+   -->
+
+  <div id ="app">
+    
+    <!-- 不改变插槽， 会使用默认值 -->
+    <cpn></cpn>
+
+    <!-- 改变插槽 -->
+    <cpn><button>按钮</button></cpn>
+
+    <!-- 一个插槽里面放多个标签 -->
+    <cpn>
+      <p>我是一个p标签</p>
+      <i>我是一个i标签</i>
+      <button>我是一个按钮</button>
+    </cpn>
+
+  </div>
+
+</body>
+
+<script>
+
+  const cpn = {
+    template: "#cpn",
+  }
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    methods: {},
+    components: {
+      cpn
+    }
+   });
+  </script>
+</html>

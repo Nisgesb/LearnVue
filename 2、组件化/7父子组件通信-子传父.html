@@ -1,0 +1,74 @@
+<!-- 自定义事件 子发射$emit() 父用v-on监听接收事件发生后做出相应处理 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<template id="cpn">
+  <div>
+    <button @click="decrease(dec)">-</button>
+    <button @click="increase(inc)">+</button>
+  </div>
+</template>
+
+<body>
+  
+  <div id ="app">
+    <cpn @decrease="decrease" @increase="increase"></cpn>
+    <h2>当前数字：{{num}}</h2>
+  </div>
+
+</body>
+
+
+
+<script>
+
+  const cpn = {
+    template: "#cpn",
+    data() {
+      return {
+        dec: "我是减号按钮",
+        inc: "我是加号按钮",
+        msg: "成功！"
+      }
+    },
+    methods: {
+      // 可以传值
+      decrease(dec) {
+        this.$emit("decrease", dec)
+      },
+      increase(inc) {
+        this.$emit("increase", inc, this.msg)
+      }
+    }
+  }
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+      num: 10
+     },  
+    methods: {
+      decrease(dec) {
+        console.log(dec);
+        this.num--
+      },
+      increase(inc, msg) {
+        console.log(inc);
+        console.log(msg);
+        this.num++
+      }
+    },
+    components: {
+      cpn
+    }
+   });
+  </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<!-- 
+
+  子组件访问父组件的属性：
+
+          parent：访问上一级的父组件
+
+          root： 访问到root
+
+          一般不会用到 因为子组件访问父组件会提高耦合度， 如果复用的时候父组件没有这个属性 就会报错
+ -->
+<template id="cpn">
+  <div>
+    <p>我是子组件</p>
+    <button @click="btnclick()">按钮</button>
+  </div>
+</template>
+<body>
+  
+  <div id ="app">
+    <cpn></cpn>
+  </div>
+
+</body>
+
+<script>
+
+  const cpn = {
+    template: "#cpn",
+    methods: {
+      btnclick() {
+        console.log(this.$parent);
+        console.log(this.$root);
+      }
+    },
+  }
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '我是父组件的msg',
+     },  
+    methods: {},
+    components: {
+      cpn
+    }
+   });
+  </script>
+</html>

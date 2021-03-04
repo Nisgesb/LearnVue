@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  <!-- value, key, index -->
+  <div id ="app">
+    <ul>
+      <li v-for="(value, key) in msg">{{key}} - {{value}}</li>
+    </ul>
+    <br/><br/>
+
+    <ul>
+      <li v-for="(item, index) in move">{{item}}</li>
+    </ul>
+  </div>
+
+
+  <!-- 
+
+    数组响应式的方法：
+        -- 响应式：
+              修改元素后可以在页面上显示出来
+
+      1、push方法： 向数组最后的位置添加一个元素
+
+      2、pop方法： 删除数组中的最后一个元素
+
+      3、shift方法： 删除数组中的第一个元素
+
+      4、unshift方法： 在数组最面添加一个元素
+
+      5、splice()： 删除、 修改、 替换都可以
+
+      6、sort方法： 排序
+
+      7、 reverse方法：反序
+
+      8、vue.set(要修改的对象, 索引值, 修改后的值)
+
+   -->
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: {
+        name: "zs",
+        age: 20,
+        sex: "male"
+      },
+      move: ["a", "b", "c", "d"]
+     },  
+    methods: {}
+   });
+  </script>
+</html>

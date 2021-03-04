@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  <!-- v-once 只渲染一次 model数据修改后   v-once不会修改 -->
+  <div id ="app">
+    <h1>{{ msg }}</h1>
+    <h1 v-once>{{ msg }}</h1>
+  </div>
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data : { 
+      msg : 'vue',
+     },  
+    methods: {}
+   });
+  </script>
+</html>

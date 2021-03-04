@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<template id="cpn">
+  <div>
+    <slot :movie="movie" name="movie">
+      <ul>
+        <li v-for="item in movie">{{item}}</li>
+      </ul>
+    </slot>
+    <slot :book="book" name="book">
+      <ul>
+        <li v-for="item in book">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+
+</template>
+
+<body>
+  
+  <div id ="app">
+
+    <!-- 原样使用组件 -->
+    <cpn></cpn>
+    <br><br><br>
+
+
+
+<!-- 想使用组件里面的数据但是用不同的方式展示 -->
+
+    <!-- 
+      
+      如果模板上的slot没有name属性的话
+       这里的一个 div替代了模板上的所有slot
+       所以 slot-scope 可以获取slot里面的所有自定义属性
+
+      -->
+    <cpn>
+      <div slot-scope="slota">
+        <span v-for="item in slota.movie">{{item}} -- </span>
+        <br><br>
+        <span v-for="item in slota.book">{{item}} -- </span>
+      </div>
+    </cpn>
+
+
+    <!-- 
+
+      如果模板上的插槽有name属性的话 
+        用div分别替代模板上的slot
+          再用slot-scope获取 slot自定义属性传的值
+
+     -->
+    <cpn>
+      <div slot-scope="slota" slot="movie">
+        <span v-for="item in slota.movie">{{item}} -- </span>
+        <span>aaa</span>
+      </div>
+
+      <div slot-scope="slotb" slot="book">
+        <span v-for="item in slotb.book">{{item}} -- </span>
+      </div>
+    </cpn>
+  </div>
+
+</body>
+
+<script>
+
+  const cpn = {
+    template: "#cpn",
+    data() {
+      return {
+        movie: ["实习生", "去他妈的世界", "美丽人生", "教父"],
+        book: ["书本a", "书本b", "书本c", "书本d", "书本e"]
+      }
+    },
+  }
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    methods: {},
+    components: {
+      cpn
+    }
+   });
+  </script>
+</html>

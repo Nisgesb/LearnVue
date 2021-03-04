@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<template id="cpn">
+  <div>
+    <h2>我是一个组件</h2>
+    <slot name="left"><span>我是左边</span></slot>
+    <slot name="center"><span>我是中间</span></slot>
+    <slot name="right"><span>我是右边</span></slot>
+    <slot><span>我没有name</span></slot>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</template>
+
+<body>
+  <!-- 
+        具名插槽： 可以给slot添加标签方便使用
+
+   -->
+
+  <div id ="app">
+    <cpn></cpn>
+    <cpn><button slot="center">中间变了</button></cpn>
+    <!-- 如果不用具名 就会修改剩下没有名字的 -->
+    <cpn><span>没有name的变了</span></cpn>
+  </div>
+
+</body>
+
+<script>
+
+  const cpn = {
+    template: "#cpn",
+  }
+
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: '',
+     },  
+    methods: {},
+    components: {
+      cpn
+    }
+   });
+  </script>
+</html>

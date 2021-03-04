@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/vue.js"></script>
+</head>
+
+<body>
+  
+  <div id ="app">
+    <input type="checkbox" value="a" v-model="msg">a
+    <input type="checkbox" value="b" v-model="msg">b
+    <input type="checkbox" value="c" v-model="msg">c
+    <input type="checkbox" value="d" v-model="msg">d
+
+    <h2>您的爱好是: {{msg}}</h2>
+  </div>
+
+</body>
+
+<script>
+   var app = new Vue({
+    el: '#app',
+    data: { 
+      msg: ['a'],
+     },  
+    methods: {}
+   });
+  </script>
+</html>
